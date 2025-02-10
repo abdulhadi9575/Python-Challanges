@@ -48,3 +48,50 @@ def game():
                 print("\nGame Over.\n")
                 print(" **** " + turn + "won. ****")
                 break
+            elif theboard['1'] == theboard['4'] == theboard['7'] != ' ': 
+                printboard(theboard)
+                print("\nGame Over.\n")                
+                print(" **** " +turn + " won. ****")
+                break
+            elif theboard['2'] == theboard['5'] == theboard['8'] != ' ': 
+                printboard(theboard)
+                print("\nGame Over.\n")                
+                print(" **** " +turn + " won. ****")
+                break
+            elif theboard['3'] == theboard['6'] == theboard['9'] != ' ': 
+                printboard(theboard)
+                print("\nGame Over.\n")                
+                print(" **** " +turn + " won. ****")
+                break 
+            elif theboard['7'] == theboard['5'] == theboard['3'] != ' ': # diagonal
+                printboard(theboard)
+                print("\nGame Over.\n")                
+                print(" **** " +turn + " won. ****")
+                break
+            elif theboard['1'] == theboard['5'] == theboard['9'] != ' ': # diagonal
+                printboard(theboard)
+                print("\nGame Over.\n")                
+                print(" **** " +turn + " won. ****")
+                break 
+
+        # If neither X nor O wins and the board is full, we'll declare the result as 'tie'.
+        if count == 9:
+            print("\nGame Over.\n")                
+            print("It's a Tie!!")
+
+        # Now we have to change the player after every move.
+        if turn =='X':
+            turn = 'O'
+        else:
+            turn = 'X'        
+    
+    # Now we will ask if player wants to restart the game or not.
+    restart = input("Do want to play Again?(y/n)")
+    if restart == "y" or restart == "Y":  
+        for key in board_key:
+            theboard[key] = " "
+
+        game()
+
+if __name__ == "__main__":
+    game()
